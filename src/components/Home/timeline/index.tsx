@@ -3,7 +3,7 @@ import Image from "next/image";
 import { timelineData } from "@/app/api/data";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { getImagePrefix } from "@/utils/utils";
+import { getImagePrefix } from "@/lib/utils";
 
 const TimeLine = () => {
   const ref = useRef(null);

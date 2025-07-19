@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { getImagePrefix } from "@/utils/utils";
+import { getImagePrefix } from "@/lib/utils";
 
 const Work = () => {
   const ref = useRef(null);

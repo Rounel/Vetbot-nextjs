@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { portfolioData } from "@/app/api/data";
 import { motion } from "framer-motion";
-import { getImagePrefix } from "@/utils/utils";
+import { getImagePrefix } from "@/lib/utils";
 
 const Portfolio = () => {
   return (

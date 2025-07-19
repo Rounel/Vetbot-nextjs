@@ -1,5 +1,5 @@
 import { perksData } from "@/app/api/data";
-import { getImagePrefix } from "@/utils/utils";
+import { getImagePrefix } from "@/lib/utils";
 import Image from "next/image";
 
 const Perks = () => {
