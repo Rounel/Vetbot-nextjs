@@ -7,14 +7,14 @@ import type { ComponentProps, HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils';
 
 export type AIMessageProps = HTMLAttributes<HTMLDivElement> & {
-  from: 'user' | 'assistant';
+  from: 'eleveur' | 'assistant';
 };
 
 export const AIMessage = ({ className, from, ...props }: AIMessageProps) => (
   <div
     className={cn(
       'group flex w-full items-end justify-end gap-2 py-4',
-      from === 'user' ? 'is-user' : 'is-assistant flex-row-reverse justify-end',
+      from === 'eleveur' ? 'is-user' : 'is-assistant flex-row-reverse justify-end',
       '[&>div]:max-w-[80%]',
       className
     )}

@@ -16,7 +16,6 @@ import { login } from "@/services/services"
 import { useAuth } from "@/contexts/authContext"
 import Image from "next/image"
 import { Separator } from "@/components/ui/separator"
-import HeroInfiniteScroll from "@/components/hero-infinite-scroll"
 
 export default function LoginPage() {
   const {setUser, user} = useAuth()
@@ -43,10 +42,10 @@ export default function LoginPage() {
       }
 
       // Redirection basée sur le type d'utilisateur
-      if (response.user) {
+      if (response.token) {
         console.log("USER", response.user)
         setUser(response.user)
-        router.push(`/provider/me`)
+        router.push(`/chat`)
       }
     } catch (err) {
       console.error("Login error:", err)
@@ -66,21 +65,21 @@ export default function LoginPage() {
     <div className="min-h-screen w-full flex flex-col lg:flex-row ">
       <section className="flex-1 flex items-center justify-center pt-8 pr-8 pb-8 pl-8 relative">
         <div className="w-full absolute top-5 left-5 ">
-          <Link href={"/"} className="text-2xl font-bold text-black">
-            MonPresta
+          <Link href={"/"} className="text-2xl font-bold text-white">
+            VetBot
           </Link>
         </div>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="h-full flex items-center justify-center z-40">
-          <Card className="bg-transparent border-none shadow-none">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="h-full flex items-center justify-center z-40 w-full max-w-xl">
+          <Card className="bg-transparent border-none shadow-none w-full">
             <CardHeader className="gap-6">
-              <CardTitle className="flex flex-col gap-5 text-black tracking-tighter text-4xl md:text-5xl font-semibold leading-tight">
+              <CardTitle className="flex flex-col gap-5 text-zinc-200 tracking-tighter text-4xl md:text-5xl font-semibold leading-tight">
                 {/* <Link href={"/"} className="text-5xl font-bold bg-linear-to-b/hsl from-purple-600 to-purple-900 rounded-2xl py-8 text-black">
-                  MonPresta
+                  VetBot
                 </Link>
                 <Separator /> */}
-                Welcome
+                Bienvenue
               </CardTitle>
-              <CardDescription className=" text-zinc-700 text-lg">
+              <CardDescription className=" text-zinc-400 text-lg">
                 Entrez votre email et mot de passe pour accéder à votre compte
               </CardDescription>
             </CardHeader>
@@ -93,20 +92,20 @@ export default function LoginPage() {
                     </div>
                   )}
                   <div className="grid gap-2">
-                    <Label htmlFor="email" className="  font-medium text-zinc-700 text-lg">Email</Label>
+                    <Label htmlFor="email" className="  font-medium text-zinc-300 text-lg">Email</Label>
                     <Input
                       id="email"
                       type="email"
                       placeholder="name@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="bg-transparent h-10 text-black placeholder:text-zinc-700 border-gray-700"
+                      className="bg-transparent h-10 text-zinc-300 placeholder:text-zinc-300 border-gray-300"
                       required
                     />
                   </div>
                   <div className="grid gap-2">
                     <div className="flex items-center justify-between">
-                      <Label htmlFor="password" className="text-lg font-medium text-zinc-700">Mot de passe</Label>
+                      <Label htmlFor="password" className="text-lg font-medium text-zinc-300">Mot de passe</Label>
                       <Link
                         href="/auth/password-recovery"
                         className="text-sm  font-medium text-purple-400 underline-offset-4 hover:underline"
@@ -120,7 +119,7 @@ export default function LoginPage() {
                         type={showPassword ? "text" : "password"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="bg-transparent h-10 text-black placeholder:text-zinc-700 border-gray-700"
+                        className="bg-transparent h-10 text-zinc-300 placeholder:text-zinc-300 border-gray-700"
                         required
                       />
                       <button
@@ -138,11 +137,11 @@ export default function LoginPage() {
                   </div>
                   <div className="flex items-center space-x-2">
                     <Checkbox id="remember" className="bg-white data-[state=checked]:bg-purple-400" />
-                    <Label htmlFor="remember" className="text-sm  font-medium text-zinc-700">
+                    <Label htmlFor="remember" className="text-sm  font-medium text-zinc-500">
                       Se souvenir de moi pendant 30 jours
                     </Label>
                   </div>
-                  <Button type="submit" className="w-full bg-primary text-white text-lg" disabled={isLoading}>
+                  <Button type="submit" className="w-full bg-green-600 text-white text-lg" disabled={isLoading}>
                     {isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Connexion en cours...
@@ -166,10 +165,14 @@ export default function LoginPage() {
         </motion.div>
       </section>
 
-      <section className="hidden lg:block flex-1 h-full relative">
-        <div className="animate-slide-right animate-delay-300 absolute inset-0 rounded-3xl m-4 overflow-hidden">
-          <HeroInfiniteScroll wGradient={false} />
-        </div>
+      <section className="hidden lg:block flex-1 h-[100dvh] relative">
+          <Image 
+            src={"/hero.png"}
+            alt="illus"
+            width={1024}
+            height={1000}
+            className="h-full w-full object-[revert-layer]"
+          />
       </section>
     </div>
   )

@@ -18,6 +18,7 @@ import { type FormEventHandler, SetStateAction, useState } from 'react';
 import { AISuggestion, AISuggestions } from './ui/kibo-ui/ai/suggestion';
 import { useRouter } from "next/navigation";
 import { startConseil, sendConseilMessage } from "@/services/vetbot-api";
+import { startConseilConversation, startDiagnosticConversation } from '@/services/services';
 
 const models = [
   { id: 'gpt-4', name: 'GPT-4' },
@@ -42,31 +43,46 @@ const suggestions = [
     'Explain cloud computing basics',
   ];
 
-const ChatInput = () => {
+const ChatInput = ({mode}: {mode:string}) => {
   const [text, setText] = useState<string>('');
   const [image, setImage] = useState<string>('');
   const [model, setModel] = useState<string>(models[0].id);
   const [status, setStatus] = useState<'submitted' | 'streaming' | 'ready' | 'error'>('ready');
   const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault();
-    if (!text) return;
-    setStatus('submitted');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus("streaming")
+    setError(null)
+    console.log(text)
+
     try {
-      // 1. Créer une session de chat
-      const { session_id } = await startConseil();
-      // 2. Envoyer le prompt initial
-      const response = await sendConseilMessage(session_id, { content: text });
-      // 3. Rediriger vers /chat/[session_id] avec le prompt et la réponse IA (en query ou state)
-      router.push(`/chat/${session_id}?prompt=${encodeURIComponent(text)}&answer=${encodeURIComponent(response?.answer || response?.content || '')}`);
+      let response
+      if (mode === "Diagnostics") {
+        response = await startDiagnosticConversation(text)
+      } else {
+        response = await startConseilConversation(text)
+      }
+      console.log("RESPONSE", response)
+      
+      if (response.error) {
+        setError(response.error.message || "Une erreur est survenue lors de la connexion")
+        return
+      }
+
+      // Redirection basée sur le type d'utilisateur
+      if (response.status === "success") {
+        console.log("USER", response.user)
+        router.push(mode === "Diagnostics" ? `/diagnostics/${response.conversation.id}` : `/conseils/${response.conversation.id}`)
+      }
     } catch (err) {
-      setStatus('error');
-      alert('Erreur lors de la création du chat.');
+      console.error("message error:", err)
+      setError("Une erreur inattendue est survenue. Veuillez réessayer.")
     } finally {
-      setStatus('ready');
+      setStatus("ready")
     }
-  };
+  }
   
   const handleSuggestionClick = (suggestion: string) => {
     console.log('Selected suggestion:', suggestion);
@@ -96,7 +112,7 @@ const ChatInput = () => {
                   <AIInputModelSelectContent>
                   {models.map((model) => (
                       <AIInputModelSelectItem key={model.id} value={model.id}>
-                      {model.name}
+                        {model.name}
                       </AIInputModelSelectItem>
                   ))}
                   </AIInputModelSelectContent>

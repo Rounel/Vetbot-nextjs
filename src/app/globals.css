@@ -120,3 +120,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+button {
+  cursor: pointer;
+}
+
+input, select {
+  border-radius: .5rem;
+}
+
+select {
+  background-color: #161618;
+}
