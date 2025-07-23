@@ -1,5 +1,4 @@
-import HeroSub from "@/components/SharedComponent/HeroSub";
-import NotFound from "@/components/NotFound";
+
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,12 +7,9 @@ export const metadata: Metadata = {
 
 const ErrorPage = () => {
   return (
-    <>
-      <HeroSub
-        title="404"
-      />
-      <NotFound />
-    </>
+    <div className="min-h-screen flex justify-center items-center">
+      404 Not Found
+    </div>
   );
 };
 

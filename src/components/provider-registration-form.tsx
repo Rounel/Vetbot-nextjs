@@ -35,7 +35,7 @@ const formSchema = z.object({
   prenom: z.string().min(2, { message: "Le prénom est requis" }),
   email: z.string().email({ message: "Adresse email invalide" }),
   password: z.string().min(8, { message: "Le mot de passe doit contenir au moins 8 caractères" }),
-  pays_id: z.number().optional(),
+  pays_id: z.string().optional(),
   role: z.enum(["eleveur", "veterinaire"]),
   numerotelephone: z.string().min(6, { message: "Numéro de téléphone invalide" }),
   ville: z.string().min(2, { message: "La ville est requise" }),
@@ -59,7 +59,7 @@ export default function ProviderRegistrationForm() {
       prenom: "",
       email: "",
       password: "",
-      pays_id: 53,
+      pays_id: "53",
       role: "eleveur",
       numerotelephone: "",
       ville: "",
@@ -137,7 +137,7 @@ export default function ProviderRegistrationForm() {
             <div className="grid grid-cols-2 gap-2 w-full">
               <Input placeholder="Ville" {...form.register("ville")} className="w-full" />
                 
-              <Select value={form.watch("pays_id") || 53} onValueChange={val => form.setValue("pays_id", val)}>
+              <Select value={form.watch("pays_id")?.toString() || "53"} onValueChange={val => form.setValue("pays_id", val.toString())}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Sélectionnez un pays (optionnel)" />
                 </SelectTrigger>
@@ -154,7 +154,7 @@ export default function ProviderRegistrationForm() {
                   {COUNTRIES.filter(country =>
                     country.name.toLowerCase().includes(countrySearch.toLowerCase())
                   ).map(country => (
-                    <SelectItem key={country.id} value={country.id}>{country.name}</SelectItem>
+                    <SelectItem key={country.id} value={country.id.toString()}>{country.name}</SelectItem>
                   ))}
                 </SelectContent>
               </Select>

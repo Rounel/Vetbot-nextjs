@@ -66,7 +66,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useSearchParams } from 'next/navigation';
 import { getCCMessages, getDCMessages, sendConseilMessage, sendDiagnosticMessage } from '@/services/services';
 
 

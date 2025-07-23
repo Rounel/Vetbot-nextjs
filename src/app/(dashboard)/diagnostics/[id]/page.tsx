@@ -1,8 +1,7 @@
 import Chat from "@/components/chat";
 
-export default async function ChatPage({ params }: {params: {id: number}}) {
-  const { id } =  await params
+export default async function ChatPage({ params }: {params: Promise<{ id: string }>}) {
+  const id = (await params).id
 
-  console.log("THIS IS ID:", id)
-  return <Chat mode="Diagnostics" id={id.toString()} />;
+  return <Chat mode="Diagnostics" id={id} />;
 }
