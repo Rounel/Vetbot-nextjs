@@ -57,7 +57,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (user) {
-      router.push('/provider/me')
+      router.push('/chat')
     }
   }, [user, router])
 
@@ -156,7 +156,7 @@ export default function LoginPage() {
             <CardFooter className="flex flex-col">
               <div className="text-center text-sm text-muted-foreground mt-2">
                 Vous n'avez pas de compte ?{" "}
-                <Link href="/auth/register" className=" text-purple-400 underline-offset-4 hover:underline">
+                <Link href="/register" className=" text-purple-400 underline-offset-4 hover:underline">
                   S'inscrire
                 </Link>
               </div>

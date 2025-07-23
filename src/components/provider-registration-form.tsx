@@ -186,6 +186,12 @@ export default function ProviderRegistrationForm() {
               {isSubmitting ? "Inscription..." : "S'inscrire"}
             </Button>
           </form>
+          <div className="text-center text-sm text-muted-foreground mt-2">
+            Vous avez déjà un compte ?{" "}
+            <Link href="/login" className=" text-purple-400 underline-offset-4 hover:underline">
+              Se connecter
+            </Link>
+          </div>
         </div>
       </section>
 
