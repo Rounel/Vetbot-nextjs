@@ -107,7 +107,7 @@ export default function LoginPage() {
                     <div className="flex items-center justify-between">
                       <Label htmlFor="password" className="text-lg font-medium text-zinc-300">Mot de passe</Label>
                       <Link
-                        href="/auth/password-recovery"
+                        href="/password-recovery"
                         className="text-sm  font-medium text-purple-400 underline-offset-4 hover:underline"
                       >
                         Mot de passe oublié ?
