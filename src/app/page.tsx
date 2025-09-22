@@ -24,9 +24,9 @@ import Link from "next/link"
 
 export default function VetBotLanding() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
       {/* Header */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className=" absolute top-0 z-50 w-full">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -44,17 +44,26 @@ export default function VetBotLanding() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-50 to-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="h-[100dvh] w-[100dvw] relative flex justify-center items-center overflow-hidden py-20">
+        <div className="h-[100dvh] w-[100dvw] absolute top-0 left-0">
+          <div className="relative">
+              <img
+                src="/hero.png"
+                alt="VetBot - Intelligence artificielle pour éleveurs"
+                className="w-full h-auto rounded-lg"
+              />
+          </div>
+        </div>
+        <div className="container relative mx-auto px-4 z-50">
+          <div className="items-center">
             <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-800 leading-tight">
+              <h1 className="text-center text-5xl md:text-6xl max-w-5xl mx-auto font-bold text-accent3 leading-tight">
                 VetBot – L'intelligence artificielle au service des <span className="text-green-600">éleveurs</span>
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-xl text-accent3 leading-relaxed mx-auto text-center">
                 Aides et suivi pour maintenir un rendement positif de son élevage
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href={"/login"} className="bg-green-500 hover:bg-green-600 text-white px-8 py-1 text-lg font-semibold rounded-lg">
                   Commencer maintenant
                 </Link>
@@ -66,13 +75,6 @@ export default function VetBotLanding() {
                   Voir la démo
                 </Link>
               </div>
-            </div>
-            <div className="relative">
-              <img
-                src="/hero.png"
-                alt="VetBot - Intelligence artificielle pour éleveurs"
-                className="w-full h-auto rounded-lg"
-              />
             </div>
           </div>
         </div>
