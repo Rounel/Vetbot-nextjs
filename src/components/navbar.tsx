@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Globe, Search, LogOut, Dot, MessageSquare, Loader2, History } from "lucide-react"
+import { Menu, Globe, Search, LogOut, Dot, MessageSquare, Loader2, History, X } from "lucide-react"
 import { cn, getInitials } from "@/lib/utils"
 import { useAuth } from "@/contexts/authContext"
 import { Loader } from "./loader"
@@ -56,6 +56,17 @@ export default function Navbar() {
   const [showContacts, setShowContacts] = useState(false)
   const [unreadCount, setUnreadCount] = useState(0)
   const [showHistory, setShowHistory] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navItems = [
+    { label: "Accueil", href: "#accueil" },
+    { label: "Fonctionnalités", href: "#fonctionnalites" },
+    { label: "Comment ça marche", href: "#comment-ca-marche" },
+    { label: "Avantages", href: "#avantages" },
+    { label: "Tarifs", href: "#tarifs" },
+    { label: "FAQ", href: "#faq" },
+    { label: "Contact", href: "#contact" },
+  ]
 
   // Fetch contacts
   const fetchContacts = async () => {
@@ -213,6 +224,68 @@ export default function Navbar() {
           </header>
         )
       }
+      {
+        !isAuthPage && !isAdminPage && (
+          <header className="sticky top-0 z-60 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex h-16 items-center justify-between">
+                {/* Logo */}
+                <div className="flex items-center space-x-2">
+                  <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+                    <span className="text-primary-foreground font-bold text-lg">V</span>
+                  </div>
+                  <span className="font-bold text-xl text-foreground">VétérinIA</span>
+                </div>
+      
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex items-center space-x-8">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </nav>
+      
+                {/* CTA Button */}
+                <div className="hidden md:flex items-center space-x-4">
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Essayer gratuitement</Button>
+                </div>
+      
+                {/* Mobile Menu Button */}
+                <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
+      
+              {/* Mobile Navigation */}
+              {isMenuOpen && (
+                <div className="md:hidden py-4 border-t">
+                  <nav className="flex flex-col space-y-4">
+                    {navItems.map((item) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+                    <Button className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground w-full">
+                      Essayer gratuitement
+                    </Button>
+                  </nav>
+                </div>
+              )}
+            </div>
+          </header>
+        )
+      }
+
 
       {/* History Modal */}
       <Dialog open={showHistory} onOpenChange={setShowHistory}>
