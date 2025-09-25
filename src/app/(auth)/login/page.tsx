@@ -57,7 +57,7 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (user) {
-      router.push('/chat')
+      router.push('/conseils')
     }
   }, [user, router])
 
