@@ -45,7 +45,7 @@ export default function LoginPage() {
       if (response.token) {
         console.log("USER", response.user)
         setUser(response.user)
-        router.push(`/chat`)
+        router.push(`/conseils`)
       }
     } catch (err) {
       console.error("Login error:", err)
