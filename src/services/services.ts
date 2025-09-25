@@ -5,7 +5,7 @@ export const MEDIA_API_URL = process.env.NODE_ENV === 'production' ? process.env
 export async function login(email: string, password: string) {
     console.log("Tentative login:", email, password)
 
-    const res = await fetch(`${BASE_API_URL}/login/`, {
+    const res = await fetch(`${BASE_API_URL}/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: email, password: password })
@@ -27,7 +27,7 @@ export async function login(email: string, password: string) {
 
 export async function registerProvider(formData: any) {
   console.log("THIS IS BASE API URL: ", BASE_API_URL)
-    const res = await fetch(`${BASE_API_URL}/register/`, {
+    const res = await fetch(`${BASE_API_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
