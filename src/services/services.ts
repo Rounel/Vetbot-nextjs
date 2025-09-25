@@ -26,12 +26,15 @@ export async function login(email: string, password: string) {
 }
 
 export async function registerProvider(formData: any) {
+  console.log("THIS IS BASE API URL: ", BASE_API_URL)
     const res = await fetch(`${BASE_API_URL}/register/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
     });
-    return res.json();
+    const data = await res.json()
+    console.log("THIS IS DATA REGISTER: ", data)
+    return data;
 }
 
 export async function startDiagnosticConversation(formData: any) {
