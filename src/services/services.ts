@@ -102,7 +102,8 @@ export async function getDCMessages(id: string) {
     const token = localStorage.getItem("access_token")
     const res = await fetch(`${BASE_API_URL}/vetbot/diagnostic/${id}/`, {
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
       }
     });
     return res.json();
