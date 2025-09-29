@@ -14,7 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Globe, Search, LogOut, Dot, MessageSquare, Loader2, History, X } from "lucide-react"
+import { Menu, Globe, Search, LogOut, Dot, MessageSquare, Loader2, History, X, Stethoscope } from "lucide-react"
 import { cn, getInitials } from "@/lib/utils"
 import { useAuth } from "@/contexts/authContext"
 import { Loader } from "./loader"
@@ -27,6 +27,7 @@ import { logout, MEDIA_API_URL, BASE_API_URL } from "@/services/services"
 import { usePathname, useRouter } from "next/navigation"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image"
 
 // Helper function for API calls
 const apiCall = async (endpoint: string, options: RequestInit = {}) => {
@@ -121,36 +122,37 @@ export default function Navbar() {
     <>
       {
         !isAuthPage && !isAdminPage && (
-          <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="px-4 w-full flex h-16 items-center justify-between">
-              <div className="ml-2 flex items-center gap-6 md:gap-10">
-                <Link href="/" className="flex items-center space-x-2">
-                  <span className="font-bold sm:inline-block text-3xl">VetBot</span>
-                </Link>
-              </div>
-    
-              {/* Right side - Search, Auth */}
-              <div className="flex items-center gap-2">
-    
-                {/* SUPPRIMÉ: Language Switcher */}
-    
+          <header className="sticky top-0 z-60 w-full border-b bg-transparent supports-[backdrop-filter]:backdrop-blur supports-[backdrop-filter]:bg-transparent mb-[100dvh]">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex h-16 items-center justify-between">
+                {/* Logo */}
+                <div className="flex items-center space-x-2">
+                  <Link href="/" className="flex items-center space-x-2">
+                    <Image src={'/vetbot-logo.png'} alt="vetbot logo" width={145} height={70} className="w-12 h-auto" />
+                  </Link>
+                </div>
+      
+                {/* Desktop Navigation */}
+                <nav className="hidden md:flex items-center space-x-8">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </nav>
+      
                 {/* Auth Buttons - Desktop */}
                 {
                   loading ? (
                     <Loader />
                   ) : !user ? (
-                      <div className="hidden md:flex md:items-center md:gap-2">
-                        <Button variant="ghost" size="icon" onClick={() => setShowHistory(true)}>
-                          <History className="h-5 w-5" />
-                          <span className="sr-only">History</span>
-                        </Button>
-                        <Button variant="ghost" asChild>
-                          <Link href="/login">Login</Link>
-                        </Button>
-                        <Button asChild>
-                          <Link href="/register">Sign up</Link>
-                        </Button>
-                      </div>
+                    <div className="hidden md:flex items-center space-x-4">
+                      <Button className="bg-primary hover:bg-primary/90 text-white">Essayer gratuitement</Button>
+                    </div>
                   ) : (
                       <div className="hidden md:flex md:items-center md:gap-2">
                         <p>Welcome {user.first_name} {user.last_name}!</p>
@@ -197,63 +199,6 @@ export default function Navbar() {
                       </div>
                   )
                 }
-    
-                {/* Mobile Menu */}
-                <Sheet>
-                  <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="md:hidden">
-                      <Menu className="h-5 w-5" />
-                      <span className="sr-only">Toggle menu</span>
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="right">
-                    <nav className="flex flex-col gap-4">
-                      <div className="flex flex-col gap-2 pt-4">
-                        <Button asChild variant="outline">
-                          <Link href="/login">Login</Link>
-                        </Button>
-                        <Button asChild>
-                          <Link href="/signup">Sign up</Link>
-                        </Button>
-                      </div>
-                    </nav>
-                  </SheetContent>
-                </Sheet>
-              </div>
-            </div>
-          </header>
-        )
-      }
-      {
-        !isAuthPage && !isAdminPage && (
-          <header className="sticky top-0 z-60 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex h-16 items-center justify-between">
-                {/* Logo */}
-                <div className="flex items-center space-x-2">
-                  <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold text-lg">V</span>
-                  </div>
-                  <span className="font-bold text-xl text-foreground">VétérinIA</span>
-                </div>
-      
-                {/* Desktop Navigation */}
-                <nav className="hidden md:flex items-center space-x-8">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-                </nav>
-      
-                {/* CTA Button */}
-                <div className="hidden md:flex items-center space-x-4">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Essayer gratuitement</Button>
-                </div>
       
                 {/* Mobile Menu Button */}
                 <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -275,7 +220,7 @@ export default function Navbar() {
                         {item.label}
                       </a>
                     ))}
-                    <Button className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground w-full">
+                    <Button className="mt-4 bg-primary hover:bg-primary/90 text-white w-full">
                       Essayer gratuitement
                     </Button>
                   </nav>

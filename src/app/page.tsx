@@ -21,36 +21,29 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import Navbar from "@/components/navbar"
+import { ProblemSection } from "@/components/problem-section"
+import { FeaturesSection } from "@/components/features-section"
+import { HowItWorksSection } from "@/components/how-it-works-section"
+import { BenefitsSection } from "@/components/benefits-section"
+import { TestimonialsSection } from "@/components/testimonials-section"
+import { PricingSection } from "@/components/pricing-section"
+import { FAQSection } from "@/components/faq-section"
+import { CTASection } from "@/components/cta-section"
 
 export default function VetBotLanding() {
   return (
     <div className="min-h-screen bg-white relative">
-      {/* Header */}
-      <header className=" absolute top-0 z-50 w-full">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <div className="flex items-center mr-8">
-                <Image src={'/vetbot-logo.png'} alt="vetbot logo" width={145} height={70} className="w-12 h-auto" />
-              </div>
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a href="/login" className="font-medium bg-green-600 px-2 py-2 rounded text-white hover:bg-green-800">
-                VetBot
-              </a>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="h-[100dvh] w-[100dvw] relative flex justify-center items-center overflow-hidden py-20">
+      <section className="h-[100dvh] w-[100dvw] absolute top-0 left-0 flex justify-center items-center overflow-hidden py-20">
         <div className="h-[100dvh] w-[100dvw] absolute top-0 left-0">
           <div className="relative">
               <img
                 src="/hero.png"
                 alt="VetBot - Intelligence artificielle pour éleveurs"
-                className="w-full h-auto rounded-lg"
+                className="w-full h-auto"
               />
           </div>
         </div>
@@ -79,6 +72,15 @@ export default function VetBotLanding() {
           </div>
         </div>
       </section>
+
+      <ProblemSection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <BenefitsSection />
+      <TestimonialsSection />
+      <PricingSection />
+      <FAQSection />
+      <CTASection />
 
       {/* Main Features Section */}
       <section className="py-20 bg-gray-50">
@@ -240,62 +242,6 @@ export default function VetBotLanding() {
           </div>
         </div>
       </section>
-
-      {/* Statistics Section */}
-      {/* <section className="py-20 bg-green-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Nos résultats parlent d'eux-mêmes</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { icon: CheckCircle, value: "+30", label: "cas testés", color: "text-green-600" },
-              { icon: Clock, value: "~3 min", label: "de diagnostic", color: "text-blue-600" },
-              { icon: Star, value: "95%", label: "de satisfaction", color: "text-yellow-600" },
-              { icon: MapPin, value: "2 villes", label: "Abidjan & Yamoussoukro", color: "text-purple-600" },
-            ].map((stat, index) => (
-              <Card key={index} className="bg-white border-0 shadow-lg text-center p-8">
-                <CardContent className="pt-6">
-                  <stat.icon className={`h-12 w-12 ${stat.color} mx-auto mb-4`} />
-                  <div className="text-4xl font-bold text-gray-800 mb-2">{stat.value}</div>
-                  <p className="text-gray-600">{stat.label}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Testimonial Section */}
-      {/* <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-green-50 border-0 shadow-lg">
-              <CardContent className="p-12 text-center">
-                <div className="flex justify-center mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-2xl italic text-gray-700 mb-8 leading-relaxed">
-                  "VetBot m'a aidé à sauver mes poules en diagnostiquant rapidement une maladie. C'est vraiment pratique
-                  d'avoir un vétérinaire dans ma poche !"
-                </blockquote>
-                <div className="flex items-center justify-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mr-4">
-                    <span className="text-white font-bold text-lg">KJ</span>
-                  </div>
-                  <div className="text-left">
-                    <cite className="text-gray-800 font-semibold text-lg">Kouassi Jean</cite>
-                    <p className="text-gray-600">Éleveur à Yamoussoukro</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-green-600">
