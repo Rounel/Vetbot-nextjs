@@ -13,7 +13,7 @@ export function CTASection() {
             Protégez votre élevage dès aujourd'hui
           </h2>
           <p className="text-xl text-muted-foreground text-pretty mb-8 max-w-2xl mx-auto">
-            Rejoignez les milliers d'éleveurs qui font confiance à VetAI pour la santé de leurs animaux. Commencez
+            Rejoignez les milliers d'éleveurs qui font confiance à VetBot pour la santé de leurs animaux. Commencez
             gratuitement, aucune carte bancaire requise.
           </p>
 

@@ -13,7 +13,7 @@ export function FAQSection() {
     {
       question: "L'IA remplace-t-elle le vétérinaire ?",
       answer:
-        "Non, VetAI est un outil d'aide au diagnostic qui complète l'expertise vétérinaire. Pour les cas graves ou complexes, nous recommandons toujours de consulter un vétérinaire professionnel. L'application vous met d'ailleurs en relation avec des vétérinaires locaux.",
+        "Non, VetBot est un outil d'aide au diagnostic qui complète l'expertise vétérinaire. Pour les cas graves ou complexes, nous recommandons toujours de consulter un vétérinaire professionnel. L'application vous met d'ailleurs en relation avec des vétérinaires locaux.",
     },
     {
       question: "Comment fonctionne le diagnostic par photo ?",
@@ -23,12 +23,12 @@ export function FAQSection() {
     {
       question: "Est-ce que ça marche hors connexion ?",
       answer:
-        "VetAI nécessite une connexion internet pour le diagnostic IA en temps réel. Cependant, les guides de premiers secours et les conseils de prévention de base sont disponibles hors ligne une fois téléchargés. Nous travaillons sur une version hors ligne pour les zones à faible connectivité.",
+        "VetBot nécessite une connexion internet pour le diagnostic IA en temps réel. Cependant, les guides de premiers secours et les conseils de prévention de base sont disponibles hors ligne une fois téléchargés. Nous travaillons sur une version hors ligne pour les zones à faible connectivité.",
     },
     {
       question: "Quels animaux sont pris en charge ?",
       answer:
-        "VetAI prend en charge les principaux animaux d'élevage : bovins, ovins, caprins, porcins, volailles, et équins. Notre base de données couvre plus de 200 maladies communes dans ces espèces. Nous ajoutons régulièrement de nouvelles espèces selon les demandes des utilisateurs.",
+        "VetBot prend en charge les principaux animaux d'élevage : bovins, ovins, caprins, porcins, volailles, et équins. Notre base de données couvre plus de 200 maladies communes dans ces espèces. Nous ajoutons régulièrement de nouvelles espèces selon les demandes des utilisateurs.",
     },
     {
       question: "Mes données sont-elles sécurisées ?",
@@ -38,7 +38,7 @@ export function FAQSection() {
     {
       question: "Comment puis-je contacter un vétérinaire via l'app ?",
       answer:
-        "VetAI intègre un annuaire de vétérinaires et pharmacies vétérinaires locales. Après un diagnostic, vous pouvez directement appeler ou envoyer un message aux professionnels proches de vous. Certains vétérinaires partenaires offrent des consultations à distance.",
+        "VetBot intègre un annuaire de vétérinaires et pharmacies vétérinaires locales. Après un diagnostic, vous pouvez directement appeler ou envoyer un message aux professionnels proches de vous. Certains vétérinaires partenaires offrent des consultations à distance.",
     },
   ]
 
@@ -52,7 +52,7 @@ export function FAQSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">Questions fréquentes</h2>
           <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-            Trouvez rapidement les réponses aux questions les plus courantes sur VetAI et son fonctionnement.
+            Trouvez rapidement les réponses aux questions les plus courantes sur VetBot et son fonctionnement.
           </p>
         </div>
 

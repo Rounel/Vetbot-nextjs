@@ -12,7 +12,7 @@ export function TestimonialsSection() {
       name: "Aminata Traoré",
       role: "Éleveuse de chèvres, Mali",
       content:
-        "VetAI m'a aidée à identifier une maladie rare chez mes chèvres. Sans cette application, j'aurais perdu tout mon troupeau.",
+        "VetBot m'a aidée à identifier une maladie rare chez mes chèvres. Sans cette application, j'aurais perdu tout mon troupeau.",
       rating: 5,
       avatar: "AT",
     },
@@ -20,7 +20,7 @@ export function TestimonialsSection() {
       name: "Dr. Jean-Baptiste Kone",
       role: "Vétérinaire, Burkina Faso",
       content:
-        "En tant que vétérinaire, je recommande VetAI à tous mes clients éleveurs. C'est un outil précieux pour le diagnostic précoce.",
+        "En tant que vétérinaire, je recommande VetBot à tous mes clients éleveurs. C'est un outil précieux pour le diagnostic précoce.",
       rating: 5,
       avatar: "JK",
     },
@@ -36,7 +36,7 @@ export function TestimonialsSection() {
       name: "Fatou Sow",
       role: "Éleveuse de volailles, Guinée",
       content:
-        "Grâce aux conseils de prévention de VetAI, mes poules sont en meilleure santé et ma production a augmenté de 30%.",
+        "Grâce aux conseils de prévention de VetBot, mes poules sont en meilleure santé et ma production a augmenté de 30%.",
       rating: 5,
       avatar: "FS",
     },
@@ -65,7 +65,7 @@ export function TestimonialsSection() {
             Ce que disent nos utilisateurs
           </h2>
           <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-            Découvrez comment VetAI transforme la vie des éleveurs et des vétérinaires à travers l'Afrique de l'Ouest.
+            Découvrez comment VetBot transforme la vie des éleveurs et des vétérinaires à travers l'Afrique de l'Ouest.
           </p>
         </div>
 

@@ -55,7 +55,7 @@ export function BenefitsSection() {
             Les avantages pour votre élevage
           </h2>
           <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-            VetAI transforme la gestion de votre élevage en vous offrant les outils pour protéger vos animaux et
+            VetBot transforme la gestion de votre élevage en vous offrant les outils pour protéger vos animaux et
             optimiser votre rentabilité.
           </p>
         </div>
@@ -90,7 +90,7 @@ export function BenefitsSection() {
           <div className="text-center">
             <h3 className="text-2xl font-bold font-poppins mb-4">Témoignage de réussite</h3>
             <blockquote className="text-lg italic mb-6 max-w-4xl mx-auto">
-              "Grâce à VetAI, j'ai détecté une épidémie naissante dans mon troupeau. L'intervention rapide m'a permis de
+              "Grâce à VetBot, j'ai détecté une épidémie naissante dans mon troupeau. L'intervention rapide m'a permis de
               sauver 80% de mes animaux et d'éviter une perte de 15 000€. L'application a littéralement sauvé mon
               exploitation."
             </blockquote>

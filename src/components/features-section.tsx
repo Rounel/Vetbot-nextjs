@@ -1,5 +1,6 @@
 import { Camera, Heart, Shield, Home, Users } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 export function FeaturesSection() {
   const features = [
@@ -9,49 +10,48 @@ export function FeaturesSection() {
       description:
         "Prenez une photo ou décrivez les symptômes. Notre IA identifie la maladie en quelques secondes avec une précision de 98%.",
       color: "text-primary",
+      bg: " bg-[url(/bg1.jpg)]",
     },
     {
       icon: Heart,
       title: "Premiers soins & urgences",
-      description: "Recevez immédiatement les gestes de premiers secours et les mesures d'urgence à appliquer.",
+      description: "Recevez immédiatement les gestes de premiers secours et les mesures d'urgence à appliquer afin d'éviter la propagation des maladies et maintenir un élevage sain.",
       color: "text-destructive",
-    },
-    {
-      icon: Shield,
-      title: "Guide prévention",
-      description: "Conseils personnalisés pour éviter la propagation des maladies et maintenir un élevage sain.",
-      color: "text-secondary",
+      bg: "bg-[url(/conseil.jpg)]",
     },
     {
       icon: Home,
       title: "Enclos intelligents",
       description: "Recommandations pour construire des enclos adaptés selon le type d'animal et le terrain.",
       color: "text-chart-3",
+      bg: "bg-[url(/enclos2.jpg)]",
     },
     {
       icon: Users,
       title: "Réseau vétérinaire",
       description: "Connexion directe avec les vétérinaires et pharmacies locales pour un suivi professionnel.",
       color: "text-chart-4",
+      bg: "bg-[url(/diagnostic.jpg)]",
     },
   ]
 
   return (
     <section id="fonctionnalites" className="py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">
-            Une solution complète pour votre élevage
+        <div className="flex flex-col items-center lg:flex-row justify-between mb-16 w-full">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins text-gray-900 text-balance mb-4">
+            <span className="text-primary">Une solution complète</span>
+            <br/> pour votre élevage
           </h2>
-          <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-            VetAI combine intelligence artificielle et expertise vétérinaire pour vous offrir un assistant complet
+          <p className="text-xl text-muted-foreground text-pretty max-w-xl">
+            VetBot combine intelligence artificielle et expertise vétérinaire pour vous offrir un assistant complet
             disponible 24h/24.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card key={index} className={cn(`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-cover`, feature.bg)}>
               <CardHeader>
                 <div
                   className={`w-12 h-12 rounded-lg bg-background border-2 border-current ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}

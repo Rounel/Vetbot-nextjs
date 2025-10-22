@@ -30,49 +30,13 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
+import { HeroSection } from "@/components/hero-section"
 
 export default function VetBotLanding() {
   return (
     <div className="min-h-screen bg-white relative">
       <Navbar />
-
-      {/* Hero Section */}
-      <section className="h-[100dvh] w-[100dvw] absolute top-0 left-0 flex justify-center items-center overflow-hidden py-20">
-        <div className="h-[100dvh] w-[100dvw] absolute top-0 left-0">
-          <div className="relative">
-              <img
-                src="/hero.png"
-                alt="VetBot - Intelligence artificielle pour éleveurs"
-                className="w-full h-auto"
-              />
-          </div>
-        </div>
-        <div className="container relative mx-auto px-4 z-50">
-          <div className="items-center">
-            <div className="space-y-8">
-              <h1 className="text-center text-5xl md:text-6xl max-w-5xl mx-auto font-bold text-accent3 leading-tight">
-                VetBot – L'intelligence artificielle au service des <span className="text-green-600">éleveurs</span>
-              </h1>
-              <p className="text-xl text-accent3 leading-relaxed mx-auto text-center">
-                Aides et suivi pour maintenir un rendement positif de son élevage
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href={"/login"} className="bg-green-500 hover:bg-green-600 text-white px-8 py-1 text-lg font-semibold rounded-lg">
-                  Commencer maintenant
-                </Link>
-                <Link
-                  target="_blank"
-                  href={"https://youtu.be/t1nw0UuPN9Y"}
-                  className="border-gray-300 text-gray-700 hover:bg-gray-200 px-8 py-1 border text-lg font-semibold rounded-lg bg-transparent"
-                >
-                  Voir la démo
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <HeroSection />
       <ProblemSection />
       <FeaturesSection />
       <HowItWorksSection />

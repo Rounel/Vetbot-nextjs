@@ -1,5 +1,7 @@
 import { AlertTriangle, Clock, TrendingDown, MapPin } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 export function ProblemSection() {
   const problems = [
@@ -7,21 +9,33 @@ export function ProblemSection() {
       icon: AlertTriangle,
       title: "Maladies imprévues",
       description: "Les épidémies peuvent décimer un troupeau en quelques jours sans diagnostic rapide.",
+      stats: "10+",
+      bg: "bg-gray-200",
+      illustration: "/conseil.jpg"
     },
     {
       icon: Clock,
       title: "Accès limité aux vétérinaires",
       description: "Dans les zones rurales, il peut falloir des heures pour consulter un spécialiste.",
+      stats: "80%",
+      bg: "bg-primary-300",
+      illustration: "/conseil.jpg"
     },
     {
       icon: TrendingDown,
       title: "Pertes économiques",
       description: "Chaque animal perdu représente une perte financière importante pour l'éleveur.",
+      stats: "1455",
+      bg: "bg-primary-300",
+      illustration: "/conseil.jpg"
     },
     {
       icon: MapPin,
       title: "Isolement géographique",
       description: "L'éloignement des centres vétérinaires complique la prise en charge d'urgence.",
+      stats: "100+",
+      bg: "bg-gray-200",
+      illustration: "/conseil.jpg"
     },
   ]
 
@@ -39,17 +53,27 @@ export function ProblemSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mb-12">
           {problems.map((problem, index) => (
-            <Card key={index} className="border-destructive/20 hover:border-destructive/40 transition-colors">
-              <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-destructive/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <problem.icon className="w-6 h-6 text-destructive" />
+            <div key={index} className="transition-colors">
+              <div className="grid grid-cols-2 h-[300px] gap-6">
+                <div className="relative rounded-xl overflow-hidden">
+                  <Image src={problem.illustration} alt={problem.title} fill className="object-cover" />
                 </div>
-                <h3 className="font-semibold mb-2">{problem.title}</h3>
-                <p className="text-sm text-muted-foreground">{problem.description}</p>
-              </CardContent>
-            </Card>
+                <div className={cn(`rounded-xl overflow-hidden flex flex-col justify-between py-4 px-5`, problem.bg)}>
+                  <div className="w-full flex items-center justify-between">
+                    <span className="font-semibold text-5xl text-black">{problem.stats}</span>
+                    <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
+                      <problem.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ">
+                    <h3 className="font-semibold text-xl text-black mb-2">{problem.title}</h3>
+                    <p className="text-sm text-gray-700">{problem.description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -57,7 +81,7 @@ export function ProblemSection() {
         <div className="bg-card rounded-2xl p-8 border border-border max-w-4xl mx-auto">
           <blockquote className="text-lg text-center italic mb-4">
             "J'ai perdu 30% de mon troupeau l'année dernière à cause d'une maladie que je n'ai pas su identifier à
-            temps. Si j'avais eu un outil comme VetAI, j'aurais pu sauver mes animaux."
+            temps. Si j'avais eu un outil comme VetBot, j'aurais pu sauver mes animaux."
           </blockquote>
           <div className="text-center">
             <cite className="font-semibold">— Amadou K., Éleveur au Mali</cite>

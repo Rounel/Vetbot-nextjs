@@ -8,7 +8,7 @@ export function PricingSection() {
       name: "Gratuit",
       price: "0",
       period: "Toujours gratuit",
-      description: "Parfait pour découvrir VetAI",
+      description: "Parfait pour découvrir VetBot",
       features: ["5 diagnostics par mois", "Conseils de base", "Support communautaire", "Accès aux guides préventifs"],
       cta: "Commencer gratuitement",
       popular: false,
