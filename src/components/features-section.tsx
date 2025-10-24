@@ -51,17 +51,17 @@ export function FeaturesSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className={cn(`group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-cover`, feature.bg)}>
-              <CardHeader>
-                <div
-                  className={`w-12 h-12 rounded-lg bg-background border-2 border-current ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-                >
-                  <feature.icon className="w-6 h-6" />
+            <Card key={index} className={cn(`group hover:shadow-lg transition-all duration-300 py-0 overflow-hidden h-[400px] hover:-translate-y-1 bg-cover bg-center bg-`, feature.bg)}>
+              <CardContent className=" bg-linear-360 from-black/80 to-90% to-transparent mt-auto py-3">
+                <div className="mb-4">
+                  {/* <div
+                    className={`w-12 h-12 rounded-lg bg-background border-2 border-current ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                  >
+                    <feature.icon className="w-6 h-6" />
+                  </div> */}
+                  <p className="text-4xl font-semibold">{feature.title}</p>
                 </div>
-                <CardTitle className="text-xl font-poppins">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-gray-300 max-w-md text-lg">{feature.description}</p>
               </CardContent>
             </Card>
           ))}

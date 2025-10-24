@@ -1,4 +1,4 @@
-import { AlertTriangle, Clock, TrendingDown, MapPin } from "lucide-react"
+import { AlertTriangle, Clock, TrendingDown, MapPin, Quote } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -68,8 +68,8 @@ export function ProblemSection() {
                     </div>
                   </div>
                   <div className="flex flex-col ">
-                    <h3 className="font-semibold text-xl text-black mb-2">{problem.title}</h3>
-                    <p className="text-sm text-gray-700">{problem.description}</p>
+                    <h3 className="font-semibold text-2xl text-black mb-2">{problem.title}</h3>
+                    <p className=" text-gray-700">{problem.description}</p>
                   </div>
                 </div>
               </div>
@@ -78,14 +78,18 @@ export function ProblemSection() {
         </div>
 
         {/* Testimonial */}
-        <div className="bg-card rounded-2xl p-8 border border-border max-w-4xl mx-auto">
-          <blockquote className="text-lg text-center italic mb-4">
-            "J'ai perdu 30% de mon troupeau l'année dernière à cause d'une maladie que je n'ai pas su identifier à
-            temps. Si j'avais eu un outil comme VetBot, j'aurais pu sauver mes animaux."
-          </blockquote>
-          <div className="text-center">
-            <cite className="font-semibold">— Amadou K., Éleveur au Mali</cite>
+        <div className="bg-primary-950 rounded-2xl py-16 px-8 border border-border w-full mx-auto flex items-center">
+          <Quote className="w-6 h-6 lg:size-56 fill-primary-400 text-primary-400 rotate-180" />
+          <div className="flex-1 px-4">
+            <blockquote className="text-lg text-center italic mb-4 lg:text-2xl">
+              "J'ai perdu 30% de mon troupeau l'année dernière à cause d'une maladie que je n'ai pas su identifier à
+              temps. Si j'avais eu un outil comme VetBot, j'aurais pu sauver mes animaux."
+            </blockquote>
+            <div className="text-center">
+              <cite className="font-semibold lg:text-lg">— Matthieu S., Entrepreneur dans l'élevage en Côte d'Ivoire</cite>
+            </div>
           </div>
+          <Quote className="w-6 h-6 lg:size-56 fill-primary-400 text-primary-400" />
         </div>
       </div>
     </section>

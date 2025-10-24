@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-[#161618]`}
+        className={`${dmSans.variable} antialiased bg-[#161618]`}
       >
         <AuthProvider>
           {children}
