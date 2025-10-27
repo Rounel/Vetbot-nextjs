@@ -1,5 +1,6 @@
 import { TrendingDown, Zap, Shield, DollarSign, Clock, Heart } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image"
 
 export function CongratsSection() {
   const benefits = [
@@ -49,61 +50,21 @@ export function CongratsSection() {
 
   return (
     <section id="avantages" className="py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">
-            Les avantages pour votre élevage
+      <div className="container flex flex-col md:flex-row justify-between items-end mx-auto px-4 sm:px-6 lg:px-8 bg-[url('/sara-bg.png')] bg-cover bg-center rounded-lg shadow-lg p-8">
+        <div className="">
+          <Image
+            src="/sara-logo.png"
+            alt="SARA 2025 Award"
+            width={500}
+            height={800}
+            className=""
+          />
+        </div>
+        {/* <div className="w-1 h-full bg-white"></div> */}
+        <div className="mb-6">
+          <h2 className="text-3xl lg:text-5xl sm:text-4xl text-white font-bold text-balance">
+            Applaudi au Salon International de l'Agriculture et des Ressources Animales 2025
           </h2>
-          <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-            VetBot transforme la gestion de votre élevage en vous offrant les outils pour protéger vos animaux et
-            optimiser votre rentabilité.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((benefit, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-primary"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <benefit.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold font-poppins mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">{benefit.description}</p>
-                    <div className="flex items-baseline space-x-2">
-                      <span className="text-2xl font-bold text-primary">{benefit.stat}</span>
-                      <span className="text-xs text-muted-foreground">{benefit.statLabel}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        {/* Success story */}
-        <div className="mt-16 bg-gradient-to-r from-secondary/10 to-primary/10 rounded-2xl p-8 lg:p-12">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold font-poppins mb-4">Témoignage de réussite</h3>
-            <blockquote className="text-lg italic mb-6 max-w-4xl mx-auto">
-              "Grâce à VetBot, j'ai détecté une épidémie naissante dans mon troupeau. L'intervention rapide m'a permis de
-              sauver 80% de mes animaux et d'éviter une perte de 15 000€. L'application a littéralement sauvé mon
-              exploitation."
-            </blockquote>
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">KD</span>
-              </div>
-              <div className="text-left">
-                <cite className="font-semibold">Kouadio Diabaté</cite>
-                <p className="text-sm text-muted-foreground">Éleveur de bovins, Côte d'Ivoire</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

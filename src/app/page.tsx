@@ -31,6 +31,7 @@ import { PricingSection } from "@/components/pricing-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { HeroSection } from "@/components/hero-section"
+import { CongratsSection } from "@/components/congrats"
 
 export default function VetBotLanding() {
   return (
@@ -39,6 +40,7 @@ export default function VetBotLanding() {
       <HeroSection />
       <ProblemSection />
       <FeaturesSection />
+      <CongratsSection />
       <HowItWorksSection />
       <BenefitsSection />
       <TestimonialsSection />

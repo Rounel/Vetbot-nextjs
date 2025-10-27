@@ -1,4 +1,4 @@
-import { TrendingDown, Zap, Shield, DollarSign, Clock, Heart } from "lucide-react"
+import { TrendingDown, Zap, Shield, DollarSign, Clock, Heart, ArrowRight, CheckCircle2 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function BenefitsSection() {
@@ -48,8 +48,9 @@ export function BenefitsSection() {
   ]
 
   return (
-    <section id="avantages" className="py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 px-6 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">
             Les avantages pour votre élevage
@@ -60,52 +61,87 @@ export function BenefitsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((benefit, index) => (
-            <Card
-              key={index}
-              className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-l-4 border-l-primary"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <benefit.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-semibold font-poppins mb-2">{benefit.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">{benefit.description}</p>
-                    <div className="flex items-baseline space-x-2">
-                      <span className="text-2xl font-bold text-primary">{benefit.stat}</span>
-                      <span className="text-xs text-muted-foreground">{benefit.statLabel}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-auto">
+          {/* Large Image Card - Top Left */}
+          <div className="md:row-span-2 rounded-3xl overflow-hidden bg-gradient-to-br from-red-200 via-red-300 to-red-400 relative">
+            <img
+              src="/person-in-coral-pink-clothing-holding-laptop-table.jpg"
+              alt="Professional with device"
+              className="w-full h-full object-cover"
+            />
+          </div>
 
-        {/* Success story */}
-        <div className="mt-16 bg-gradient-to-r from-secondary/10 to-primary/10 rounded-2xl p-8 lg:p-12">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold font-poppins mb-4">Témoignage de réussite</h3>
-            <blockquote className="text-lg italic mb-6 max-w-4xl mx-auto">
-              "Grâce à VetBot, j'ai détecté une épidémie naissante dans mon troupeau. L'intervention rapide m'a permis de
-              sauver 80% de mes animaux et d'éviter une perte de 15 000€. L'application a littéralement sauvé mon
-              exploitation."
-            </blockquote>
-            <div className="flex items-center justify-center space-x-4">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">KD</span>
-              </div>
-              <div className="text-left">
-                <cite className="font-semibold">Kouadio Diabaté</cite>
-                <p className="text-sm text-muted-foreground">Éleveur de bovins, Côte d'Ivoire</p>
+          {/* 95% Card - Top Middle */}
+          <div className="rounded-3xl bg-gradient-to-br from-blue-200 to-blue-300 p-8 flex flex-col items-center justify-center text-center">
+            <div className="text-8xl md:text-9xl font-bold text-white mb-4">95%</div>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Gets your Funds Instantly, Delivered faster and seamless
+            </p>
+          </div>
+
+          {/* Safe and Secure Card - Top Right */}
+          <div className="rounded-3xl bg-white p-8 border border-gray-200 md:col-span-2">
+            <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-2xl mb-6">
+              <Shield className="w-8 h-8 text-blue-500" />
+            </div>
+            <div className="text-6xl font-bold text-gray-900 mb-2">$100M</div>
+            <p className="text-gray-600 mb-6">Fraud & Scam Protection</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">Safe and Secure</h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Your data and funds are always encrypted and secured with today's leading fraud protections.
+            </p>
+            <button className="flex items-center gap-2 text-gray-900 font-semibold hover:gap-3 transition-all">
+              Read more <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* 500K+ Applications Card - Bottom Left */}
+          <div className="rounded-3xl bg-white p-8 border border-gray-200 md:col-span-2">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">500K+ Applications Processed</h3>
+            <p className="text-gray-600 leading-relaxed">
+              Offering phones, text, and email support in over 50+ languages, complemented by automatic notifications.
+            </p>
+          </div>
+
+          {/* Financial Health Card with Gradient - Bottom Middle */}
+          <div className="md:col-span-1 lg:col-span-1 rounded-3xl bg-white p-8 border border-gray-200">
+            <h3 className="text-3xl font-bold text-gray-900 mb-3">Maintain financial health</h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              Maintaining your financial health and keep you hassle-Free wellbeing with our personalised guidelines.
+            </p>
+            <div className="rounded-2xl bg-gradient-to-br from-blue-300 via-purple-300 to-pink-300 p-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4">
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center mb-2">
+                    <div className="w-4 h-4 bg-gray-900 rounded-full" />
+                  </div>
+                  <div className="font-semibold text-gray-900 text-sm">Reports</div>
+                  <div className="text-xs text-gray-600">Turn data into actionable insights.</div>
+                </div>
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4">
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center mb-2">
+                    <div className="w-4 h-4 bg-gray-900 rounded-sm" />
+                  </div>
+                  <div className="font-semibold text-gray-900 text-sm">Management</div>
+                  <div className="text-xs text-gray-600">Oversight & Smart Tools</div>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* 45% Card - Bottom Right */}
+          <div className="rounded-3xl bg-gradient-to-br from-cyan-100 to-cyan-200 p-8 flex flex-col items-center justify-center text-center">
+            <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-300 to-pink-400 rounded-3xl mb-6">
+              <CheckCircle2 className="w-10 h-10 text-white" />
+            </div>
+            <div className="text-8xl md:text-9xl font-bold text-gray-900 mb-4">45%</div>
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Approval time decreases by upto 45% for the funds delivery.
+            </p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
