@@ -1,4 +1,4 @@
-import { Check, Star } from "lucide-react"
+import { Calendar, Check, CircleDollarSign, LockKeyhole, Star } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -50,9 +50,9 @@ export function PricingSection() {
 
   return (
     <section id="tarifs" className="py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">Choisissez votre plan</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-poppins text-balance mb-4 text-primary-950">Choisissez votre plan</h2>
           <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
             Commencez gratuitement et évoluez selon vos besoins. Tous les plans incluent notre garantie de satisfaction.
           </p>
@@ -63,12 +63,12 @@ export function PricingSection() {
             <Card
               key={index}
               className={`relative ${
-                plan.popular ? "border-2 border-primary shadow-lg scale-105" : "border border-border"
+                plan.popular ? "border-2 border-secondary shadow-lg scale-105 bg-primary-950" : "border border-primary-950 bg-black"
               }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
+                  <div className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium flex items-center space-x-1">
                     <Star className="w-4 h-4" />
                     <span>Plus populaire</span>
                   </div>
@@ -76,13 +76,13 @@ export function PricingSection() {
               )}
 
               <CardHeader className="text-center pb-8">
-                <CardTitle className="text-2xl font-poppins">{plan.name}</CardTitle>
+                <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <div className="mt-4">
                   {plan.price === "Sur mesure" ? (
                     <div className="text-2xl font-bold">{plan.price}</div>
                   ) : (
                     <div className="flex items-baseline justify-center">
-                      <span className="text-4xl font-bold">{plan.price}€</span>
+                      <span className="text-4xl font-bold">{plan.price} FCFA</span>
                       <span className="text-muted-foreground ml-2">/{plan.period}</span>
                     </div>
                   )}
@@ -91,14 +91,6 @@ export function PricingSection() {
               </CardHeader>
 
               <CardContent className="space-y-6">
-                <ul className="space-y-3">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
 
                 <Button
                   className={`w-full ${
@@ -109,6 +101,15 @@ export function PricingSection() {
                 >
                   {plan.cta}
                 </Button>
+
+                <ul className="space-y-3">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center space-x-3">
+                      <Check className="w-5 h-5 text-secondary flex-shrink-0" />
+                      <span className="text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           ))}
@@ -116,8 +117,10 @@ export function PricingSection() {
 
         {/* Money back guarantee */}
         <div className="text-center mt-12">
-          <p className="text-muted-foreground">
-            💰 Garantie satisfait ou remboursé 30 jours • 🔒 Paiement sécurisé • 📱 Annulation à tout moment
+          <p className="text-muted-foreground flex items-center justify-center gap-1">
+            <CircleDollarSign className="size-4" /> Garantie satisfait ou remboursé 30 jours • 
+            <LockKeyhole className="size-4" />  Paiement sécurisé • 
+            <Calendar className="size-4" /> Annulation à tout moment
           </p>
         </div>
       </div>

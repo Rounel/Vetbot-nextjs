@@ -58,18 +58,19 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="py-16 lg:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">
-            Ce que disent nos utilisateurs
+    <section className="py-16 lg:py-24 bg-primary/20 bg-[url('/bg-form-contact-h3.png')] bg-cover">
+      <div className="max-w-[90rem] mx-auto px-4 sm:px-0 grid grid-cols-1 lg:grid-cols-2 lg:gap-10">
+        <div className="flex flex-col justify-between">
+          <h2 className="text-3xl lg:text-5xl sm:text-4xl font-bold font-poppins text-balance mb-4 text-primary-950">
+            Ce que disent <br/>
+            <span className="text-secondary">nos utilisateurs</span>
           </h2>
-          <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
+          <p className="text-xl text-primary-900/80 text-pretty max-w-lg">
             Découvrez comment VetBot transforme la vie des éleveurs et des vétérinaires à travers l'Afrique de l'Ouest.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative">
           {/* Testimonial slider */}
           <div className="overflow-hidden">
             <div
@@ -78,7 +79,7 @@ export function TestimonialsSection() {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <Card className="border-2 border-primary/20">
+                  <Card className="border-2 border-primary/20 bg-primary-950">
                     <CardContent className="p-8 text-center">
                       {/* Stars */}
                       <div className="flex justify-center space-x-1 mb-6">
@@ -111,7 +112,7 @@ export function TestimonialsSection() {
           <div className="flex justify-center items-center space-x-4 mt-8">
             <button
               onClick={prevTestimonial}
-              className="w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center hover:bg-muted transition-colors"
+              className="w-10 h-10 bg-secondary-600 border border-border rounded-full flex items-center justify-center hover:bg-muted transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -131,7 +132,7 @@ export function TestimonialsSection() {
 
             <button
               onClick={nextTestimonial}
-              className="w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center hover:bg-muted transition-colors"
+              className="w-10 h-10 bg-secondary-600 border border-border rounded-full flex items-center justify-center hover:bg-muted transition-colors"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

@@ -1,33 +1,47 @@
-import { Camera, Brain, CheckCircle, Image, Pen } from "lucide-react"
+ import { Pen, ImageIcon } from "lucide-react"
+ import Image from "next/image"
 
-export function HowItWorksSection() {
+  export function HowItWorksSection() {
   const steps = [
     {
-      number: "01",
-      icon: Camera,
+      number: 1,
       title: "Prenez une photo ou décrivez",
-      description: "Photographiez l'animal malade ou décrivez les symptômes observés dans l'application.",
-      color: "text-primary",
+      description:
+        "Photographiez l'animal malade ou décrivez les symptômes observés dans l'application.",
+      side: "left" as const,
+      icons: [
+        { type: "lucide" as const, Icon: ImageIcon },
+        { type: "lucide" as const, Icon: Pen },
+      ],
     },
     {
-      number: "02",
-      icon: Brain,
+      number: 2,
       title: "L'IA analyse et diagnostique",
       description:
         "Notre intelligence artificielle analyse les données et identifie la maladie probable en quelques secondes.",
-      color: "text-secondary",
+      side: "right" as const,
+      icons: [
+        { type: "image" as const, src: "/thinker.svg", alt: "Thinker", width: 70, height: 70 },
+      ],
     },
     {
-      number: "03",
-      icon: CheckCircle,
+      number: 3,
       title: "Suivez le plan d'action",
-      description: "Recevez un plan de traitement détaillé et contactez un vétérinaire si nécessaire.",
-      color: "text-chart-3",
+      description:
+        "Recevez un plan de traitement détaillé et contactez un vétérinaire si nécessaire.",
+      side: "left" as const,
+      icons: [
+        { type: "image" as const, src: "/planning.svg", alt: "Planning", width: 70, height: 70 },
+        { type: "image" as const, src: "/medicine.svg", alt: "medecine", width: 70, height: 70 },
+        { type: "image" as const, src: "/house-design.svg", alt: "house-design", width: 70, height: 70 },
+      ],
     },
   ]
 
   return (
-    <div className="min-h-screen bg-primary-950 flex items-center justify-center px-6 py-20">
+    <div className="bg-primary-950 flex items-center justify-center px-6 py-20 relative">
+      <div className="absolute top-0 left-0 w-3/4 h-20 bg-[url('/bg-section-lab-1.png')] bg-cover"></div>
+      <div className="absolute bottom-0 right-0 w-3/4 h-20 bg-[url('/bg-section-why-h1.png')] bg-cover"></div>
       <div className="max-w-4xl w-full">
         {/* Heading */}
         <h1 className="text-4xl md:text-5xl font-bold text-white text-center mb-20">How it works?</h1>
@@ -36,117 +50,67 @@ export function HowItWorksSection() {
         <div className="relative">
           {/* Vertical dotted line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dotted border-primary/30 -translate-x-1/2 hidden md:block" />
-
-          {/* Step 1 - Order Your Kit */}
-          <div className="relative mb-24 md:mb-32">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Text - Left */}
-              <div className="text-right order-2 mr-4 md:order-1">
-                <h2 className="text-xl font-semibold text-white mb-3">Order Your Kit</h2>
-                <p className="text-gray-400 leading-relaxed">
-                  Get your NovaLink dish and router shipped directly to your door — no technician needed.
-                </p>
-              </div>
-
-              {/* Icon - Right */}
-              <div className="flex justify-center md:justify-start order-1 md:order-2">
-                <div className="relative">
-                  {/* Blue dot connector */}
-                  <div className="absolute -left-[2.25rem] top-1/2 size-10 md:flex items-center justify-center bg-primary rounded-full -translate-y-1/2 hidden" >
-                    1
+          {steps.map((step, idx) => {
+            const isLeft = step.side === "left"
+            return (
+              <div
+                key={step.number}
+                className={`relative ${idx < steps.length - 1 ? "mb-24 md:mb-32" : ""}`}
+              >
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  {/* Text */}
+                  <div
+                    className={
+                      isLeft
+                        ? "text-right order-2 mr-4 md:order-1"
+                        : "text-left order-2 ml-4"
+                    }
+                  >
+                    <h2 className="text-xl font-semibold text-white mb-3">{step.title}</h2>
+                    <p className="text-gray-400 leading-relaxed">{step.description}</p>
                   </div>
 
-                  {/* Icon container */}
-                  <div className="flex flex-row gap-4 ml-4">
-                    <div className="w-20 h-20 bg-primary-200/30 rounded-2xl flex items-center justify-center border border-primary/20">
-                      <Image className="text-primary-300 size-10" />
+                  {/* Icons */}
+                  <div
+                    className={
+                      isLeft
+                        ? "flex justify-center md:justify-start order-1 md:order-2"
+                        : "flex justify-center md:justify-end order-1"
+                    }
+                  >
+                    <div className="relative">
+                      {/* Blue dot connector */}
+                      <div
+                        className={
+                          isLeft
+                            ? "absolute -left-[2.25rem] top-1/2 size-10 md:flex items-center justify-center bg-primary rounded-full -translate-y-1/2 hidden"
+                            : "absolute -right-[2.25rem] top-1/2 size-10 md:flex items-center justify-center bg-primary rounded-full -translate-y-1/2 hidden"
+                        }
+                      >
+                        {step.number}
+                      </div>
+
+                      {/* Icon container */}
+                      <div className={isLeft ? "flex flex-row gap-4 ml-4" : "flex flex-row gap-4 mr-4"}>
+                        {step.icons.map((ic, i) => (
+                          <div
+                            key={i}
+                            className="w-20 h-20 bg-primary-200/30 rounded-2xl flex items-center justify-center border border-primary/20"
+                          >
+                            {ic.type === "lucide" && ic.Icon ? (
+                              <ic.Icon className="text-primary-300 size-15" />
+                            ) : (
+                              <Image src={ic.src} alt={ic.alt} width={ic.width} height={ic.height} />
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="w-20 h-20 bg-primary-200/30 rounded-2xl flex items-center justify-center border border-primary/20">
-                      <Pen className="text-primary-300 size-10" />
-                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Step 2 - Set It Up */}
-          <div className="relative mb-24 md:mb-32">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Icon - Left */}
-              <div className="flex justify-center md:justify-end order-1">
-                <div className="relative">
-                  {/* Blue dot connector */}
-                  <div className="absolute -right-[2.25rem] top-1/2 size-10 md:flex items-center justify-center bg-primary rounded-full -translate-y-1/2 hidden" >
-                    2
-                  </div>
-
-                  {/* Icon container */}
-                  {/* <div className="w-20 h-20 bg-primary-950/30 rounded-2xl flex items-center justify-center border border-primary/20">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-10 h-10 text-primary"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
-                    </svg>
-                  </div> */}
-                </div>
-              </div>
-
-              {/* Text - Right */}
-              <div className="text-left order-2 ml-4">
-                <h2 className="text-xl font-semibold text-white mb-3">Set It Up</h2>
-                <p className="text-gray-400 leading-relaxed">
-                  Plug it in, power it up, and point it at the sky. The smart dish aligns itself automatically.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Step 3 - Connect Instantly */}
-          <div className="relative">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Text - Left */}
-              <div className="text-right order-2 md:order-1 mr-4">
-                <h2 className="text-xl font-semibold text-white mb-3">Connect Instantly</h2>
-                <p className="text-gray-400 leading-relaxed">
-                  Stream, work, game, and browse with speeds that rival fiber — wherever you are.
-                </p>
-              </div>
-
-              {/* Icon - Right */}
-              <div className="flex justify-center md:justify-start order-1 md:order-2">
-                <div className="relative">
-                  {/* Blue dot connector */}
-                  <div className="absolute -left-[2.25rem] top-1/2 size-10 md:flex items-center justify-center bg-primary rounded-full -translate-y-1/2 hidden"  >
-                    3
-                  </div>
-
-                  {/* Icon container */}
-                  {/* <div className="w-20 h-20 bg-primary-950/30 rounded-2xl flex items-center justify-center border border-primary/20">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-10 h-10 text-primary"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12.53 18.22l-.53.53-.53-.53a.75.75 0 011.06 0z"
-                      />
-                    </svg>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-          </div>
+            )
+          })}
         </div>
       </div>
     </div>

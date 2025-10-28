@@ -47,24 +47,32 @@ export function FAQSection() {
   }
 
   return (
-    <section id="faq" className="py-16 lg:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">Questions fréquentes</h2>
-          <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
-            Trouvez rapidement les réponses aux questions les plus courantes sur VetBot et son fonctionnement.
-          </p>
+    <section id="faq" className="py-16 lg:py-24 bg-secondary/10 bg-[url('/bg-form-contact-h3.png')] bg-cover">
+      <div className="w-full max-w-[90rem] grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10mx-auto px-4 sm:px-0 mx-auto">
+        <div className="flex flex-col justify-between">
+          <div className="">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">Questions fréquentes</h2>
+            <p className="text-xl text-pretty max-w-xl text-gray-700">
+              Trouvez rapidement les réponses aux questions les plus courantes sur VetBot et son fonctionnement.
+            </p>
+          </div>
+
+          {/* Contact support */}
+          <div className="p-6 w-max rounded-2xl bg-gradient-to-br from-primary-100 via-primary-300 to-primary-100">
+            <p className="text-black text-3xl font-semibold mb-4">Vous avez d'autres questions ?</p>
+            <Button className="bg-primary hover:bg-primary-700 text-base text-white">Contactez le support</Button>
+          </div>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="flex flex-col gap-2">
           {faqs.map((faq, index) => (
-            <Card key={index} className="overflow-hidden">
+            <Card key={index} className="overflow-hidden py-0 bg-black/10">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full text-left p-6 hover:bg-muted/50 transition-colors"
+                className="w-full text-left p-6 hover:bg-muted/20 transition-colors"
               >
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold font-poppins pr-4">{faq.question}</h3>
+                <div className="flex items-center justify-between text-primary-950">
+                  <h3 className="font-semibold pr-4">{faq.question}</h3>
                   {openIndex === index ? (
                     <ChevronUp className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                   ) : (
@@ -75,17 +83,11 @@ export function FAQSection() {
 
               {openIndex === index && (
                 <CardContent className="px-6 pb-6 pt-0">
-                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  <p className="text-primary-900 leading-relaxed">{faq.answer}</p>
                 </CardContent>
               )}
             </Card>
           ))}
-        </div>
-
-        {/* Contact support */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">Vous ne trouvez pas la réponse à votre question ?</p>
-          <Button variant="outline">Contacter le support</Button>
         </div>
       </div>
     </section>

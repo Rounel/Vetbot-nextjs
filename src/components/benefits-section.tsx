@@ -48,12 +48,12 @@ export function BenefitsSection() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-50 py-16 md:py-24">
+      <div className="max-w-[90rem] mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4">
-            Les avantages pour votre élevage
+          <h2 className="text-3xl sm:text-4xl font-bold font-poppins text-balance mb-4 text-black">
+            <span className="text-primary-500">Les avantages</span> pour votre élevage
           </h2>
           <p className="text-xl text-muted-foreground text-pretty max-w-3xl mx-auto">
             VetBot transforme la gestion de votre élevage en vous offrant les outils pour protéger vos animaux et
@@ -66,78 +66,85 @@ export function BenefitsSection() {
           {/* Large Image Card - Top Left */}
           <div className="md:row-span-2 rounded-3xl overflow-hidden bg-gradient-to-br from-red-200 via-red-300 to-red-400 relative">
             <img
-              src="/person-in-coral-pink-clothing-holding-laptop-table.jpg"
+              src="/suivi2.jpg"
               alt="Professional with device"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-center object-cover"
             />
+            <div className="bg-white/40 backdrop-blur-sm absolute bottom-0 left-0 p-4 rounded-2xl">
+              <p className="text-6xl font-bold text-primary">-70%</p>
+              <p className="text-primary mb-5">de pertes</p>
+              <h3 className="text-2xl font-bold text-black mb-2">Réduire les pertes de bétail</h3>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Diagnostic précoce pour éviter la propagation des maladies.
+              </p>
+            </div>
           </div>
 
           {/* 95% Card - Top Middle */}
-          <div className="rounded-3xl bg-gradient-to-br from-blue-200 to-blue-300 p-8 flex flex-col items-center justify-center text-center">
-            <div className="text-8xl md:text-9xl font-bold text-white mb-4">95%</div>
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Gets your Funds Instantly, Delivered faster and seamless
+          <div className="rounded-3xl bg-gradient-to-br from-primary-800 to-primary-900 p-8 flex flex-col items-center justify-center text-center">
+            <div className="text-6xl md:text-7xl font-bold text-white mb-4">{"< 2min"}</div>
+            <span>de diagnostic</span>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Intervention immédiate grâce aux alertes intelligentes
             </p>
           </div>
 
           {/* Safe and Secure Card - Top Right */}
-          <div className="rounded-3xl bg-white p-8 border border-gray-200 md:col-span-2">
-            <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-2xl mb-6">
-              <Shield className="w-8 h-8 text-blue-500" />
+          <div className="rounded-3xl bg-white p-8 border border-gray-200 md:col-span-2 bg-[url('/enclos2.jpg')] bg-cover ">
+            <div className="bg-white/40 backdrop-blur-sm rounded-xl p-4 flex flex-col">
+              {/* <div className="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-2xl mb-6">
+                <Shield className="w-8 h-8 text-blue-500" />
+              </div> */}
+              <div className="text-6xl font-bold text-white mb-2">+40%</div>
+              <p className="text-gray-200 mb-6">de productivité</p>
+              <h3 className="text-2xl font-bold text-white mb-3">Améliorer les conditions d'élevage</h3>
+              <p className="text-gray-200 mb-6 leading-relaxed">
+                Conseils personnalisés pour optimiser votre exploitation
+              </p>
+              {/* <button className="flex items-center gap-2 text-gray-900 font-semibold hover:gap-3 transition-all">
+                Read more <ArrowRight className="w-4 h-4" />
+              </button> */}
             </div>
-            <div className="text-6xl font-bold text-gray-900 mb-2">$100M</div>
-            <p className="text-gray-600 mb-6">Fraud & Scam Protection</p>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Safe and Secure</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Your data and funds are always encrypted and secured with today's leading fraud protections.
-            </p>
-            <button className="flex items-center gap-2 text-gray-900 font-semibold hover:gap-3 transition-all">
-              Read more <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
 
           {/* 500K+ Applications Card - Bottom Left */}
           <div className="rounded-3xl bg-white p-8 border border-gray-200 md:col-span-2">
-            <h3 className="text-3xl font-bold text-gray-900 mb-2">500K+ Applications Processed</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Offering phones, text, and email support in over 50+ languages, complemented by automatic notifications.
-            </p>
-          </div>
-
-          {/* Financial Health Card with Gradient - Bottom Middle */}
-          <div className="md:col-span-1 lg:col-span-1 rounded-3xl bg-white p-8 border border-gray-200">
-            <h3 className="text-3xl font-bold text-gray-900 mb-3">Maintain financial health</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-3">Bien-être animal</h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Maintaining your financial health and keep you hassle-Free wellbeing with our personalised guidelines.
+              Conseils personnalisés pour optimiser votre exploitation. Soins adaptés pour la santé et le confort de vos animaux.
             </p>
-            <div className="rounded-2xl bg-gradient-to-br from-blue-300 via-purple-300 to-pink-300 p-6">
+            <div className="rounded-2xl bg-secondary-300 p-6">
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4">
-                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center mb-2">
-                    <div className="w-4 h-4 bg-gray-900 rounded-full" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center gap-4">
+                  <div className="p-2 w-max bg-white rounded-lg flex items-center justify-center">
+                    <Shield className="size-10 text-primary" />
                   </div>
-                  <div className="font-semibold text-gray-900 text-sm">Reports</div>
-                  <div className="text-xs text-gray-600">Turn data into actionable insights.</div>
+                  <div className="flex flex-col">
+                    <div className="font-semibold text-gray-900 text-5xl">+40%</div>
+                    <div className="text-xs text-gray-600">de productivité</div>
+                  </div>
                 </div>
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4">
-                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center mb-2">
-                    <div className="w-4 h-4 bg-gray-900 rounded-sm" />
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center gap-4">
+                  <div className="p-2 w-max bg-white rounded-lg flex items-center justify-center">
+                    <Heart className="size-10 text-primary" />
                   </div>
-                  <div className="font-semibold text-gray-900 text-sm">Management</div>
-                  <div className="text-xs text-gray-600">Oversight & Smart Tools</div>
+                  <div className="flex flex-col">
+                    <div className="font-semibold text-gray-900 text-5xl">98%</div>
+                    <div className="text-xs text-gray-600">de satisfaction</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* 45% Card - Bottom Right */}
-          <div className="rounded-3xl bg-gradient-to-br from-cyan-100 to-cyan-200 p-8 flex flex-col items-center justify-center text-center">
-            <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-pink-300 to-pink-400 rounded-3xl mb-6">
+          <div className="rounded-3xl bg-gradient-to-br from-primary-100 to-primary-200 p-8 flex flex-col items-center justify-center text-center">
+            <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 rounded-3xl mb-6">
               <CheckCircle2 className="w-10 h-10 text-white" />
             </div>
-            <div className="text-8xl md:text-9xl font-bold text-gray-900 mb-4">45%</div>
+            <div className="text-8xl md:text-9xl font-bold text-gray-900 mb-4">24/7</div>
             <p className="text-gray-700 text-lg leading-relaxed">
-              Approval time decreases by upto 45% for the funds delivery.
+              Assistant toujours accessible, même sans vétérinaire.
             </p>
           </div>
         </div>
