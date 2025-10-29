@@ -190,7 +190,7 @@ export const PromptInputActionAddAttachments = ({
 };
 
 export type PromptInputMessage = {
-  text?: string;
+  text: string | "";
   files?: FileUIPart[];
 };
 

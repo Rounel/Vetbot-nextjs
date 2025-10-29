@@ -151,7 +151,11 @@ export default function Navbar() {
                     <Loader />
                   ) : !user ? (
                     <div className="hidden md:flex items-center space-x-4">
-                      <Button className="bg-primary hover:bg-primary/90 text-white">Essayer gratuitement</Button>
+                      <Button className="bg-primary hover:bg-primary/90 text-white">
+                        <Link href="/login">
+                          Essayer gratuitement
+                        </Link>
+                      </Button>
                     </div>
                   ) : (
                       <div className="hidden md:flex md:items-center md:gap-2">
@@ -221,7 +225,9 @@ export default function Navbar() {
                       </a>
                     ))}
                     <Button className="mt-4 bg-primary hover:bg-primary/90 text-white w-full">
-                      Essayer gratuitement
+                      <Link href="/login">
+                        Essayer gratuitement
+                      </Link>
                     </Button>
                   </nav>
                 </div>
