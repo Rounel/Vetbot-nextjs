@@ -167,11 +167,11 @@ export default function LoginPage() {
 
       <section className="hidden lg:block flex-1 h-[100dvh] relative">
           <Image 
-            src={"/hero.png"}
+            src={"/bg1.jpg"}
             alt="illus"
             width={1024}
             height={1000}
-            className="h-full w-full object-[revert-layer]"
+            className="h-full w-full object-cover"
           />
       </section>
     </div>
