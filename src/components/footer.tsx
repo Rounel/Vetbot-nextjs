@@ -1,11 +1,10 @@
-
-import { Mail, MapPin, Phone } from "lucide-react"
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
 
-export function Footer() {
-  return (
-      <footer className="bg-black text-white py-16">
+export const Footer = () => {
+
+    return (
+      <footer className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="col-span-2">

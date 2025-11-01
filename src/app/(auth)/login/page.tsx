@@ -62,7 +62,7 @@ export default function LoginPage() {
   }, [user, router])
 
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row ">
+    <div className="min-h-screen w-full grid grid-cols-1 lg:grid-cols-3">
       <section className="flex-1 flex items-center justify-center pt-8 pr-8 pb-8 pl-8 relative">
         <div className="w-full absolute top-5 left-5 ">
           <Link href={"/"} className="text-2xl font-bold text-white">
@@ -165,7 +165,7 @@ export default function LoginPage() {
         </motion.div>
       </section>
 
-      <section className="hidden lg:block flex-1 h-[100dvh] relative">
+      <section className="hidden lg:block lg:col-span-2 h-[100dvh] relative">
           <Image 
             src={"/bg1.jpg"}
             alt="illus"

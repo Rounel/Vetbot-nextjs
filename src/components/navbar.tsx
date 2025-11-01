@@ -225,7 +225,7 @@ export default function Navbar() {
                       </a>
                     ))}
                     <Button className="mt-4 bg-primary hover:bg-primary/90 text-white w-full">
-                      <Link href={"/auth/login"}>
+                      <Link href="/login">
                         Essayer gratuitement
                       </Link>
                     </Button>
